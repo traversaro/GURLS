@@ -6,6 +6,10 @@ matrix:
     env: TRAVIS_BUILD_TYPE=Release
   - compiler: clang
     env: TRAVIS_BUILD_TYPE=Debug
+  - compiler: gcc
+    env: TRAVIS_BUILD_TYPE=Debug
+  - compiler: clang
+    env: TRAVIS_BUILD_TYPE=Release
   
 
 before_script:

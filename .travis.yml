@@ -9,7 +9,7 @@ matrix:
   
 
 before_script:
-  - sudo apt-get install gfortran
+  - sudo apt-get install gfortran libboost-system-dev
   - mkdir build
   - cd build
   - cmake -DCMAKE_BUILD_TYPE=${GAZEBO_YARP_PLUGINS_BUILD_TYPE} -DGURLS_USE_EXTERNALS:BOOL=ON ./..

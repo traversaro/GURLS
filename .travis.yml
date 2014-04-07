@@ -1,0 +1,20 @@
+language: cpp
+
+matrix:
+  include: 
+  - compiler: gcc
+    env: TRAVIS_BUILD_TYPE=Release
+  - compiler: clang
+    env: TRAVIS_BUILD_TYPE=Debug
+  
+
+before_script:
+  - sudo apt-get install gfortran
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_BUILD_TYPE=${GAZEBO_YARP_PLUGINS_BUILD_TYPE} -DGURLS_USE_EXTERNALS:BOOL=ON ./..
+
+
+script: 
+  - make
+  - sudo make install

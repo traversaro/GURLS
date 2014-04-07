@@ -1,18 +1,18 @@
 language: cpp
 
-matrix:
-  include: 
-  - compiler: gcc
-    env: TRAVIS_BUILD_TYPE=Release
-  - compiler: clang
-    env: TRAVIS_BUILD_TYPE=Debug
-  - compiler: gcc
-    env: TRAVIS_BUILD_TYPE=Debug
-  - compiler: clang
-    env: TRAVIS_BUILD_TYPE=Release
+compiler: 
+  - gcc
+  - clang
   
+env:   
+  - TRAVIS_BUILD_TYPE=Release
+  - TRAVIS_BUILD_TYPE=Debug
 
 before_script:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update
+  - sudo apt-get install gcc-4.8
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
   - sudo apt-get install gfortran libboost-system-dev libboost-serialization-dev libboost-signals-dev libboost-test-dev libboost-filesystem-dev  libboost-date-time-dev
   - mkdir build
   - cd build
